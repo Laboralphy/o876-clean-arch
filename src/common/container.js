@@ -15,7 +15,6 @@ function createContainer () {
             }
         }
     )
-    console.log(container)
     return container
 }
 

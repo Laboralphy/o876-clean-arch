@@ -6,12 +6,10 @@ class UserController {
 
     async findUser (name) {
         try {
-            console.log('debug 1')
             const oUser = await this.interactor.findUser(name)
-            console.log('debug 2')
             return httpHelper.ok({
                 id: oUser.id,
-                name: oUser.name
+                name: oUser.username
             })
         } catch (e) {
             return httpHelper.notFound()

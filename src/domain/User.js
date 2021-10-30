@@ -1,10 +1,18 @@
+const validator = require('../common/validator')
+
+/**
+ * @class User
+ * @property id {number}
+ * @property username {string}
+ * @property password {string}
+ * @property email {string}
+ */
 class User {
-    constructor(payload) {
-        Object.assign(this, payload)
-        this.id = payload.id
-        this.username = payload.username
-        this.password = payload.password
-        this.email = payload.email
+    constructor (payload) {
+        this.id = validator.validateNumber(payload.id)
+        this.username = validator.validateString(payload.username)
+        this.password = validator.validateString(payload.password)
+        this.email = validator.validateString(payload.email)
     }
 }
 

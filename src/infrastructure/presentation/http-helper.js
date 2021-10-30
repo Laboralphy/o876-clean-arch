@@ -1,28 +1,38 @@
-function badRequest (error) {
+function toString(x) {
+    if (x instanceof Buffer) {
+        return x.toString()
+    }
+    if (typeof x === 'object') {
+        return JSON.stringify(x)
+    }
+    return x.toString()
+}
+
+function badRequest () {
     return {
         statusCode: 400,
-        body: error
+        body: '400 - bad request'
     }
 }
 
-function unauthorize (error) {
+function unauthorized () {
     return {
         statusCode: 401,
-        body: error
+        body: '401 - unauthorized'
     }
 }
 
-function forbidden (error) {
+function forbidden () {
     return {
         statusCode: 403,
-        body: error
+        body: '403 - forbidden'
     }
 }
 
 function notFound () {
     return {
         statusCode: 404,
-        body: null
+        body: '404 - not found'
     }
 }
 
@@ -37,7 +47,7 @@ function serverError (error) {
 function ok (data) {
     return {
         statusCode: 200,
-        body: data
+        body: toString(data)
     }
 }
 
@@ -53,7 +63,7 @@ module.exports = {
     ok,
     serverError,
     badRequest,
-    unauthorize,
+    unauthorized,
     forbidden,
     notFound
 }

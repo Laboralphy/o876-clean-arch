@@ -56,7 +56,7 @@ class UserRepositoryInMem extends UserRepository {
     }
 
     find (name) {
-        const payload = this._dataAsArray().find(u => u.name === name)
+        const payload = this._dataAsArray().find(u => u.username === name)
         if (payload) {
             return Promise.resolve(new User(payload))
         } else {

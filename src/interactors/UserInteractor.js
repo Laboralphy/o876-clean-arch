@@ -4,7 +4,10 @@ class UserInteractor {
     }
 
     findUser (name) {
-        return this.userRepository.find(name).catch(e => console.error(e))
+        return this
+            .userRepository
+            .find(name)
+            .catch(e => console.error(e))
     }
 }
 

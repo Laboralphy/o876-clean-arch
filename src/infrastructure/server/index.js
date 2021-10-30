@@ -14,7 +14,7 @@ class Server {
         const serv = http.createServer(app)
 
         app.get('/user/find/:name', async (req, res) => {
-            const h = await container.resolve('UserInteractor').findUser(req.params.name)
+            const h = await container.resolve('UserController').findUser(req.params.name)
             res.status(h.statusCode).end(h.body)
         })
 
