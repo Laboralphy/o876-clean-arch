@@ -8,6 +8,11 @@ class Server {
         this._application = null
     }
 
+    /**
+     * Envoie une réponse au client
+     * @param res {object}
+     * @param h {HttpPresentation}
+     */
     sendResponse (res, h) {
         /**
          * le paramètre h doit etre une réponse http telle que composée dans http-helper
