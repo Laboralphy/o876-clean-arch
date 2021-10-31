@@ -9,6 +9,13 @@ class Server {
     }
 
     sendResponse (res, h) {
+        /**
+         * le paramètre h doit etre une réponse http telle que composée dans http-helper
+         */
+        if (!('statusCodex' in h) || !('body' in h)) {
+            res.status(500).end('500 - internal server error : malformed http response')
+            return
+        }
         res.status(h.statusCode)
         if (h.body !== null) {
             if (typeof h.body === 'object') {
@@ -24,14 +31,9 @@ class Server {
     create () {
         const app = express()
         const serv = http.createServer(app)
-
-        app.get('/user/find/:name', async (req, res) => {
-            const h = await container.resolve('UserController').findUser(req.params.name)
-            this.sendResponse(res, h)
-        })
-
         this._application = app
         this._httpServer = serv
+        this.defineRoutes()
     }
 
     listen (port) {
@@ -39,6 +41,15 @@ class Server {
             this._httpServer.listen(port, () => {
                 resolve()
             })
+        })
+    }
+
+    defineRoutes () {
+        const app = this._application
+
+        app.get('/user/find/:name', async (req, res) => {
+            const h = await container.resolve('UserController').findUser(req.params.name)
+            this.sendResponse(res, h)
         })
     }
 }

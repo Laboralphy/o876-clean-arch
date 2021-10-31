@@ -12,7 +12,6 @@ class UserInteractor {
         return this
             .userRepository
             .find(name)
-            .catch(e => console.error(e))
     }
 }
 
