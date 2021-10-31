@@ -3,6 +3,11 @@ class UserInteractor {
         this.userRepository = UserRepositoryInMem
     }
 
+    /**
+     * Recherche un utilisateur par son nom
+     * @param name {string}
+     * @returns {Promise<User>}
+     */
     findUser (name) {
         return this
             .userRepository

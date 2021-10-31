@@ -6,6 +6,9 @@ class UserController {
 
     async findUser (name) {
         try {
+            /**
+             * @type {User}
+             */
             const oUser = await this.interactor.findUser(name)
             return httpHelper.ok({
                 id: oUser.id,

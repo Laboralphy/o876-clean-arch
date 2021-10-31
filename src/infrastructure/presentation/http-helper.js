@@ -1,13 +1,3 @@
-function toString(x) {
-    if (x instanceof Buffer) {
-        return x.toString()
-    }
-    if (typeof x === 'object') {
-        return JSON.stringify(x)
-    }
-    return x.toString()
-}
-
 function badRequest () {
     return {
         statusCode: 400,
@@ -47,7 +37,7 @@ function serverError (error) {
 function ok (data) {
     return {
         statusCode: 200,
-        body: toString(data)
+        body: data
     }
 }
 
