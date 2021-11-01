@@ -2,16 +2,19 @@
   "name": "clean-arch",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "srv/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "$NODE src/index.js"
+    "start": "$NODE srv/index.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "awilix": "^5.0.1",
-    "express": "^4.17.1"
+    "debug": "^4.3.2",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "ws": "^8.2.3"
   }
 }

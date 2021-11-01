@@ -5,9 +5,9 @@ function createContainer () {
 
     container.loadModules(
         [
-            'src/infrastructure/controllers/*.js',
-            'src/interactors/*.js',
-            'src/infrastructure/repositories/*.js'
+            'srv/infrastructure/controllers/*.js',
+            'srv/interactors/*.js',
+            'srv/infrastructure/repositories/*.js'
         ],
         {
             resolverOptions: {
